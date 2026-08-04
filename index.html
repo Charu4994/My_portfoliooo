@@ -1,901 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charu Yadav | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .cy-resume-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .cy-resume-card {
-            background: linear-gradient(145deg, rgba(0, 212, 255, 0.06), rgba(155, 48, 255, 0.06));
-            border: 1px solid rgba(0, 212, 255, 0.25);
-            border-radius: 18px;
-            padding: 35px 30px;
-            width: 320px;
-            text-align: center;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        
-        .cy-resume-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.25);
-        }
-        
-        .cy-resume-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00d4ff, #9b30ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px;
-            font-size: 28px;
-            color: #fff;
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
-        }
-        
-        .cy-resume-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .cy-resume-card p {
-            opacity: 0.8;
-            font-size: 14px;
-            margin-bottom: 22px;
-            line-height: 1.5;
-        }
-        
-        .cy-resume-btns {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cy-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform .2s ease;
-        }
-        
-        .cy-btn-primary {
-            background: linear-gradient(135deg, #00d4ff, #9b30ff);
-            color: #fff;
-        }
-        
-        .cy-btn-outline {
-            border: 1px solid rgba(0, 212, 255, 0.5);
-            color: #00d4ff;
-            background: transparent;
-        }
-        
-        .cy-btn:hover {
-            transform: scale(1.06);
-        }
-        
-        .cy-contact-wrap {
-            display: flex;
-            gap: 36px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        
-        .cy-contact-info {
-            flex: 1;
-            min-width: 260px;
-            max-width: 340px;
-        }
-        
-        .cy-contact-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .cy-contact-info p {
-            opacity: 0.8;
-            line-height: 1.5;
-            margin-bottom: 18px;
-            font-size: 14px;
-        }
-        
-        .cy-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-        
-        .cy-contact-item .cy-icon-box {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00d4ff, #9b30ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            flex-shrink: 0;
-            font-size: 14px;
-        }
-        
-        .cy-contact-item span {
-            opacity: 0.85;
-            font-size: 14px;
-        }
-        
-        .cy-contact-form {
-            flex: 1;
-            min-width: 260px;
-            max-width: 340px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 16px;
-            padding: 24px 22px;
-            box-sizing: border-box;
-        }
-        
-        .cy-contact-form form {
-            margin: 0 !important;
-            display: flex !important;
-            flex-direction: column;
-            gap: 18px !important;
-        }
-        
-        .cy-field {
-            position: relative;
-            margin-bottom: 0 !important;
-        }
-        
-        .cy-field input,
-        .cy-field textarea {
-            margin: 0 !important;
-            width: 100% !important;
-            padding: 12px 14px !important;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-            font-family: inherit;
-            outline: none;
-            transition: border-color .2s ease;
-            box-sizing: border-box !important;
-            height: auto !important;
-            line-height: 1.3;
-            display: block !important;
-        }
-        
-        .cy-field input:focus,
-        .cy-field textarea:focus {
-            border-color: #00d4ff;
-        }
-        
-        .cy-field textarea {
-            min-height: 90px !important;
-            max-height: 160px !important;
-            resize: vertical;
-        }
-        
-        .cy-submit-btn {
-            width: 100%;
-            padding: 12px !important;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #00d4ff, #9b30ff);
-            color: #fff;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: transform .2s ease;
-        }
-        
-        .cy-submit-btn:hover {
-            transform: scale(1.02);
-        }
-        
-        .cy-success-msg {
-            display: none;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .cy-success-msg i {
-            font-size: 32px;
-            color: #00d4ff;
-            margin-bottom: 10px;
-        }
-        
-        .cy-success-msg h4 {
-            color: #fff;
-            margin-bottom: 6px;
-            font-size: 16px;
-        }
-        
-        .cy-success-msg p {
-            opacity: 0.8;
-            font-size: 13px;
-        }
-        
-        .cy-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 22px 0;
-        }
-        
-        .cy-badge {
-            padding: 7px 18px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            color: #00d4ff;
-            background: rgba(0, 212, 255, 0.08);
-        }
-        
-        .cy-services-grid2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            margin-top: 40px;
-        }
-        
-        .cy-service-card2 {
-            background: linear-gradient(145deg, rgba(0, 212, 255, 0.05), rgba(155, 48, 255, 0.05));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 32px 26px;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        
-        .cy-service-card2:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
-        }
-        
-        .cy-service-icon2 {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #00d4ff, #9b30ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: #fff;
-            margin-bottom: 18px;
-        }
-        
-        .cy-service-card2 h3 {
-            color: #fff;
-            margin-bottom: 10px;
-            font-size: 19px;
-        }
-        
-        .cy-service-card2 p {
-            opacity: 0.75;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .cy-skills-wrap2 {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 25px;
-        }
-        
-        .cy-skill-col {
-            flex: 1;
-            min-width: 280px;
-            max-width: 420px;
-        }
-        
-        .cy-skill-col h3 {
-            color: #fff;
-            margin-bottom: 16px;
-            font-size: 18px;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-            padding-bottom: 8px;
-        }
-        
-        .cy-skill-row2 {
-            margin-bottom: 14px;
-        }
-        
-        .cy-skill-label2 {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            font-size: 13px;
-            color: #fff;
-        }
-        
-        .cy-skill-track {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .cy-skill-fill {
-            height: 100%;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #00d4ff, #9b30ff);
-        }
-        
-        .cy-circles-wrap {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .cy-circle2 {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cy-circle2 .cy-circle-inner {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #0d1520;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cy-circle2 .cy-circle-inner span {
-            font-size: 16px;
-            font-weight: 700;
-            color: #fff;
-        }
-        
-        .cy-circle-label {
-            text-align: center;
-            margin-top: 8px;
-            font-size: 12px;
-            opacity: 0.8;
-            color: #fff;
-        }
-        
-        .cy-projects-grid2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
-            margin-top: 25px;
-        }
-        
-        .cy-project-card2 {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        
-        .cy-project-card2:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.2);
-        }
-        
-        .cy-project-media {
-            height: 130px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .cy-project-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .4s ease;
-            display: block;
-        }
-        
-        .cy-project-card2:hover .cy-project-media img {
-            transform: scale(1.08);
-        }
-        
-        .cy-icon-media {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(155, 48, 255, 0.15));
-        }
-        
-        .cy-icon-media i {
-            font-size: 42px;
-            color: #00d4ff;
-        }
-        
-        .cy-live-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #00ff88;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .cy-live-dot {
-            width: 6px;
-            height: 6px;
-            background: #00ff88;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #00ff88;
-        }
-        
-        .cy-project-body {
-            padding: 16px 16px 18px;
-        }
-        
-        .cy-project-body h3 {
-            color: #fff;
-            font-size: 15px;
-            margin-bottom: 7px;
-        }
-        
-        .cy-project-body p {
-            opacity: 0.75;
-            font-size: 12.5px;
-            line-height: 1.5;
-            margin-bottom: 14px;
-        }
-        
-        .cy-project-links2 {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .cy-project-links2 .cy-btn {
-            padding: 7px 14px;
-            font-size: 12px;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        ::-webkit-scrollbar {
-            width: 9px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #00d4ff, #9b30ff);
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #00e5ff, #b040ff);
-        }
-        
-        nav {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(8, 13, 22, 0.8) !important;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-            box-sizing: border-box;
-        }
-        
-        .nav-links a,
-        .nav-links a:link,
-        .nav-links a:visited,
-        .nav-links a:focus,
-        .nav-links a:active {
-            color: #e8f4ff !important;
-            -webkit-text-fill-color: #e8f4ff !important;
-            background: transparent !important;
-            background-color: transparent !important;
-            background-image: none !important;
-            -webkit-background-clip: initial !important;
-            background-clip: initial !important;
-            text-shadow: none !important;
-            opacity: 1 !important;
-            position: relative;
-            padding: 8px 4px !important;
-            display: inline-block !important;
-            transition: color .25s ease;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00d4ff, #9b30ff);
-            transition: width .3s ease;
-            border-radius: 2px;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #00d4ff !important;
-            -webkit-text-fill-color: #00d4ff !important;
-        }
-        
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .page {
-            padding-top: 110px !important;
-            box-sizing: border-box;
-        }
-        
-        #about,
-        #services,
-        #skills,
-        #projects,
-        #resume,
-        #contact {
-            display: block !important;
-            min-height: 100vh;
-            padding-bottom: 40px !important;
-        }
-        
-        #about>h2,
-        #services>h2,
-        #skills>h2,
-        #projects>h2,
-        #resume>h2,
-        #contact>h2 {
-            text-align: center;
-        }
-        
-        #contact .cy-contact-wrap {
-            max-width: 900px;
-            margin: 40px auto 0;
-        }
-        
-        #contact {
-            min-height: auto !important;
-            padding-bottom: 60px !important;
-        }
-        
-        #about .about-content {
-            max-width: 1100px;
-            margin: 40px auto 0;
-        }
-    </style>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charu Yadav | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.cy-resume-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:40px;}
+.cy-resume-card{background:linear-gradient(145deg,rgba(0,212,255,0.06),rgba(155,48,255,0.06));border:1px solid rgba(0,212,255,0.25);border-radius:18px;padding:35px 30px;width:320px;text-align:center;transition:transform .3s ease, box-shadow .3s ease;}
+.cy-resume-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,212,255,0.25);}
+.cy-resume-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#9b30ff);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:#fff;box-shadow:0 0 25px rgba(0,212,255,0.4);}
+.cy-resume-card h3{font-size:22px;margin-bottom:10px;color:#fff;}
+.cy-resume-card p{opacity:0.8;font-size:14px;margin-bottom:22px;line-height:1.5;}
+.cy-resume-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cy-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:30px;font-size:14px;font-weight:600;text-decoration:none;transition:transform .2s ease;}
+.cy-btn-primary{background:linear-gradient(135deg,#00d4ff,#9b30ff);color:#fff;}
+.cy-btn-outline{border:1px solid rgba(0,212,255,0.5);color:#00d4ff;background:transparent;}
+.cy-btn:hover{transform:scale(1.06);}
 
+.cy-contact-wrap{display:flex;gap:36px;flex-wrap:wrap;justify-content:center;margin-top:25px;}
+.cy-contact-info{flex:1;min-width:260px;max-width:340px;}
+.cy-contact-info h3{font-size:20px;margin-bottom:10px;color:#fff;}
+.cy-contact-info p{opacity:0.8;line-height:1.5;margin-bottom:18px;font-size:14px;}
+.cy-contact-item{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.cy-contact-item .cy-icon-box{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#9b30ff);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:14px;}
+.cy-contact-item span{opacity:0.85;font-size:14px;}
+.cy-contact-form{flex:1;min-width:260px;max-width:340px;display:flex;flex-direction:column;justify-content:flex-start;background:rgba(255,255,255,0.03);border:1px solid rgba(0,212,255,0.2);border-radius:16px;padding:10px 18px;box-sizing:border-box;}
+.cy-contact-form form{margin:0 !important;display:block !important;gap:0 !important;}
+.cy-field{position:relative;margin-bottom:4px !important;}
+.cy-field input, .cy-field textarea{margin:0 !important;width:100% !important;padding:5px 10px !important;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:#fff;font-size:12px;font-family:inherit;outline:none;transition:border-color .2s ease;box-sizing:border-box !important;height:auto !important;line-height:1.3;display:block !important;}
+.cy-field input:focus, .cy-field textarea:focus{border-color:#00d4ff;}
+.cy-field textarea{min-height:45px !important;max-height:55px !important;resize:vertical;}
+.cy-submit-btn{width:100%;padding:6px !important;border:none;border-radius:6px;background:linear-gradient(135deg,#00d4ff,#9b30ff);color:#fff;font-weight:700;font-size:12px;cursor:pointer;transition:transform .2s ease;}
+.cy-submit-btn:hover{transform:scale(1.02);}
+.cy-success-msg{display:none;text-align:center;padding:10px;}
+.cy-success-msg i{font-size:32px;color:#00d4ff;margin-bottom:10px;}
+.cy-success-msg h4{color:#fff;margin-bottom:6px;font-size:16px;}
+.cy-success-msg p{opacity:0.8;font-size:13px;}
+
+.cy-badges{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0;}
+.cy-badge{padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid rgba(0,212,255,0.4);color:#00d4ff;background:rgba(0,212,255,0.08);}
+
+.cy-services-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px;}
+.cy-service-card2{background:linear-gradient(145deg,rgba(0,212,255,0.05),rgba(155,48,255,0.05));border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 26px;transition:transform .3s ease,box-shadow .3s ease;}
+.cy-service-card2:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,212,255,0.2);}
+.cy-service-icon2{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#00d4ff,#9b30ff);display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;margin-bottom:18px;}
+.cy-service-card2 h3{color:#fff;margin-bottom:10px;font-size:19px;}
+.cy-service-card2 p{opacity:0.75;font-size:14px;line-height:1.6;}
+
+.cy-skills-wrap2{display:flex;gap:50px;flex-wrap:wrap;justify-content:center;margin-top:25px;}
+.cy-skill-col{flex:1;min-width:280px;max-width:420px;}
+.cy-skill-col h3{color:#fff;margin-bottom:16px;font-size:18px;border-bottom:2px solid rgba(0,212,255,0.3);padding-bottom:8px;}
+.cy-skill-row2{margin-bottom:14px;}
+.cy-skill-label2{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#fff;}
+.cy-skill-track{width:100%;height:8px;background:rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;}
+.cy-skill-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#00d4ff,#9b30ff);}
+.cy-circles-wrap{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
+.cy-circle2{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.cy-circle2 .cy-circle-inner{width:80px;height:80px;border-radius:50%;background:#0d1520;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.cy-circle2 .cy-circle-inner span{font-size:16px;font-weight:700;color:#fff;}
+.cy-circle-label{text-align:center;margin-top:8px;font-size:12px;opacity:0.8;color:#fff;}
+
+.cy-projects-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:25px;}
+.cy-project-card2{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;}
+.cy-project-card2:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,212,255,0.2);}
+.cy-project-media{height:130px;overflow:hidden;position:relative;}
+.cy-project-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block;}
+.cy-project-card2:hover .cy-project-media img{transform:scale(1.08);}
+.cy-icon-media{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(155,48,255,0.15));}
+.cy-icon-media i{font-size:42px;color:#00d4ff;}
+.cy-live-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.6);color:#00ff88;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;}
+.cy-live-dot{width:6px;height:6px;background:#00ff88;border-radius:50%;box-shadow:0 0 8px #00ff88;}
+.cy-project-body{padding:16px 16px 18px;}
+.cy-project-body h3{color:#fff;font-size:15px;margin-bottom:7px;}
+.cy-project-body p{opacity:0.75;font-size:12.5px;line-height:1.5;margin-bottom:14px;}
+.cy-project-links2{display:flex;gap:8px;flex-wrap:wrap;}
+.cy-project-links2 .cy-btn{padding:7px 14px;font-size:12px;}
+
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:9px;}
+::-webkit-scrollbar-track{background:rgba(255,255,255,0.03);}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#00d4ff,#9b30ff);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#00e5ff,#b040ff);}
+
+nav{position:fixed !important;top:0;left:0;width:100%;z-index:1000;background:rgba(8,13,22,0.8) !important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,212,255,0.15);box-sizing:border-box;}
+.nav-links a, .nav-links a:link, .nav-links a:visited, .nav-links a:focus, .nav-links a:active{
+  color:#e8f4ff !important;
+  -webkit-text-fill-color:#e8f4ff !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  text-shadow:none !important;
+  opacity:1 !important;
+  position:relative;
+  padding:8px 4px !important;
+  display:inline-block !important;
+  transition:color .25s ease;
+}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:linear-gradient(90deg,#00d4ff,#9b30ff);transition:width .3s ease;border-radius:2px;}
+.nav-links a:hover, .nav-links a.active{
+  color:#00d4ff !important;
+  -webkit-text-fill-color:#00d4ff !important;
+}
+.nav-links a:hover::after, .nav-links a.active::after{width:100%;}
+
+.page{padding-top:110px !important;box-sizing:border-box;}
+
+#about, #services, #skills, #projects, #resume, #contact{
+  display:block !important;
+  min-height:100vh;
+  padding-bottom:40px !important;
+}
+#about > h2, #services > h2, #skills > h2, #projects > h2, #resume > h2, #contact > h2{
+  text-align:center;
+}
+#contact .cy-contact-wrap{max-width:900px;margin:40px auto 0;}
+#contact{min-height:auto !important;padding-bottom:60px !important;}
+#about .about-content{max-width:1100px;margin:40px auto 0;}
+</style>
+</head>
 <body>
-    <div class="control-panel">
-        <button id="themeToggle"><i class="fas fa-moon"></i></button>
-        <button id="musicToggle"><i class="fas fa-music"></i></button>
-        <audio id="bgMusic" loop>
+<div class="control-panel">
+<button id="themeToggle"><i class="fas fa-moon"></i></button>
+<button id="musicToggle"><i class="fas fa-music"></i></button>
+<audio id="bgMusic" loop>
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
-    </div>
+</div>
 
-    <nav>
-        <div class="logo">Charu's <span style="background:linear-gradient(135deg,#00d4ff,#9b30ff);-webkit-background-clip:text;background-clip:text;color:transparent;">Portfolio</span></div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<nav>
+<div class="logo">Charu's <span style="background:linear-gradient(135deg,#00d4ff,#9b30ff);-webkit-background-clip:text;background-clip:text;color:transparent;">Portfolio</span></div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#resume">Resume</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 
-    <section id="home" class="page">
-        <div class="home-content">
-            <h2>Hello, It's Me</h2>
-            <h1>CHARU YADAV</h1>
-            <p>And I'm a <span class="typed-text">Data Science / ML Enthusiast</span></p>
-            <p class="description">I build machine learning projects that turn raw data into practical, working applications — from content-based recommendation systems to disease-prediction tools, deployed as interactive web apps.</p>
-            <div class="social-links">
-                <a href="https://github.com/Charu4994" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/charu-yadav-0090a025b/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="profile-image">
-            <div class="image-container" style="width:350px; height:350px; border-radius:50%; padding:6px; margin:0 auto; background:linear-gradient(135deg, #00d4ff, #9b30ff); box-shadow:0 0 30px rgba(0,212,255,0.5);">
-                <img src="profile.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;">
-            </div>
-        </div>
-    </section>
+<section id="home" class="page">
+<div class="home-content">
+<h2>Hello, It's Me</h2>
+<h1>CHARU YADAV</h1>
+<p>And I'm a <span class="typed-text">Data Science / ML Enthusiast</span></p>
+<p class="description">I build machine learning projects that turn raw data into practical, working applications — from content-based recommendation systems to disease-prediction tools, deployed as interactive web apps.</p>
+<div class="social-links">
+<a href="https://github.com/Charu4994" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/charu-yadav-0090a025b/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<div class="profile-image">
+<div class="image-container" style="width:350px; height:350px; border-radius:50%; padding:6px; margin:0 auto; background:linear-gradient(135deg, #00d4ff, #9b30ff); box-shadow:0 0 30px rgba(0,212,255,0.5);">
+<img src="my pic.JPG" alt="Profile" style="width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;">
+</div>
+</div>
+</section>
 
-    <section id="about" class="page">
-        <div class="about-content">
-            <div class="profile-image">
-                <div class="image-container" style="width:280px; height:280px; border-radius:50%; padding:5px; margin:0 auto; background:linear-gradient(135deg, #00d4ff, #9b30ff); box-shadow:0 0 25px rgba(0,212,255,0.4);">
-                    <img src="profile.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;">
-                </div>
-            </div>
-            <div class="about-text">
-                <h2>About <span>Me</span></h2>
-                <h3>Data Science & Machine Learning</h3>
-                <p>I'm an MCA student passionate about building practical machine learning applications. My work spans content-based recommendation systems, regression models for business predictions, and multi-disease diagnostic tools — all built end-to-end
-                    with Python, scikit-learn, and Streamlit, and deployed live for anyone to try.</p>
-                <div class="cy-badges">
-                    <span class="cy-badge">Python</span>
-                    <span class="cy-badge">Machine Learning</span>
-                    <span class="cy-badge">Data Analysis</span>
-                    <span class="cy-badge">Streamlit</span>
-                    <span class="cy-badge">Web Development</span>
-                </div>
-                <a href="Charu_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download Resume</a>
-            </div>
-        </div>
-    </section>
+<section id="about" class="page">
+<div class="about-content">
+<div class="profile-image">
+<div class="image-container" style="width:280px; height:280px; border-radius:50%; padding:5px; margin:0 auto; background:linear-gradient(135deg, #00d4ff, #9b30ff); box-shadow:0 0 25px rgba(0,212,255,0.4);">
+<img src="my pic.JPG" alt="Profile" style="width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;">
+</div>
+</div>
+<div class="about-text">
+<h2>About <span>Me</span></h2>
+<h3>Data Science & Machine Learning</h3>
+<p>I'm an MCA student passionate about building practical machine learning applications. My work spans content-based recommendation systems, regression models for business predictions, and multi-disease diagnostic tools — all built end-to-end with Python, scikit-learn, and Streamlit, and deployed live for anyone to try.</p>
+<div class="cy-badges">
+<span class="cy-badge">Python</span>
+<span class="cy-badge">Machine Learning</span>
+<span class="cy-badge">Data Analysis</span>
+<span class="cy-badge">Streamlit</span>
+<span class="cy-badge">Web Development</span>
+</div>
+<a href="Charu_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download Resume</a>
+</div>
+</div>
+</section>
 
-    <section id="services" class="page">
-        <h2>My <span>Services</span></h2>
-        <div class="cy-services-grid2">
-            <div class="cy-service-card2">
-                <div class="cy-service-icon2"><i class="fas fa-brain"></i></div>
-                <h3>Machine Learning</h3>
-                <p>Building predictive models using scikit-learn — regression, classification, and recommendation systems trained on real-world datasets.</p>
-            </div>
-            <div class="cy-service-card2">
-                <div class="cy-service-icon2"><i class="fas fa-chart-line"></i></div>
-                <h3>Data Analysis</h3>
-                <p>Cleaning, exploring, and visualizing data with Pandas and Matplotlib to uncover patterns and communicate insights clearly.</p>
-            </div>
-            <div class="cy-service-card2">
-                <div class="cy-service-icon2"><i class="fas fa-laptop-code"></i></div>
-                <h3>App Deployment</h3>
-                <p>Turning notebooks into interactive Streamlit web apps that anyone can use directly in the browser — no setup required.</p>
-            </div>
-        </div>
-    </section>
+<section id="services" class="page">
+<h2>My <span>Services</span></h2>
+<div class="cy-services-grid2">
+<div class="cy-service-card2">
+<div class="cy-service-icon2"><i class="fas fa-brain"></i></div>
+<h3>Machine Learning</h3>
+<p>Building predictive models using scikit-learn — regression, classification, and recommendation systems trained on real-world datasets.</p>
+</div>
+<div class="cy-service-card2">
+<div class="cy-service-icon2"><i class="fas fa-chart-line"></i></div>
+<h3>Data Analysis</h3>
+<p>Cleaning, exploring, and visualizing data with Pandas and Matplotlib to uncover patterns and communicate insights clearly.</p>
+</div>
+<div class="cy-service-card2">
+<div class="cy-service-icon2"><i class="fas fa-laptop-code"></i></div>
+<h3>App Deployment</h3>
+<p>Turning notebooks into interactive Streamlit web apps that anyone can use directly in the browser — no setup required.</p>
+</div>
+</div>
+</section>
 
-    <section id="skills" class="page">
-        <h2>My <span>Skills</span></h2>
-        <div class="cy-skills-wrap2">
-            <div class="cy-skill-col">
-                <h3>Technical Skills</h3>
-                <div class="cy-skill-row2">
-                    <div class="cy-skill-label2"><span>Python</span><span>90%</span></div>
-                    <div class="cy-skill-track">
-                        <div class="cy-skill-fill" style="width:90%;"></div>
-                    </div>
-                </div>
-                <div class="cy-skill-row2">
-                    <div class="cy-skill-label2"><span>Pandas / NumPy</span><span>85%</span></div>
-                    <div class="cy-skill-track">
-                        <div class="cy-skill-fill" style="width:85%;"></div>
-                    </div>
-                </div>
-                <div class="cy-skill-row2">
-                    <div class="cy-skill-label2"><span>scikit-learn</span><span>80%</span></div>
-                    <div class="cy-skill-track">
-                        <div class="cy-skill-fill" style="width:80%;"></div>
-                    </div>
-                </div>
-                <div class="cy-skill-row2">
-                    <div class="cy-skill-label2"><span>Streamlit</span><span>80%</span></div>
-                    <div class="cy-skill-track">
-                        <div class="cy-skill-fill" style="width:80%;"></div>
-                    </div>
-                </div>
-                <div class="cy-skill-row2">
-                    <div class="cy-skill-label2"><span>HTML / CSS / JS</span><span>75%</span></div>
-                    <div class="cy-skill-track">
-                        <div class="cy-skill-fill" style="width:75%;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="cy-skill-col">
-                <h3>Professional Skills</h3>
-                <div class="cy-circles-wrap">
-                    <div style="width:130px;text-align:center;">
-                        <div class="cy-circle2" style="background:conic-gradient(#00d4ff 90%, rgba(255,255,255,0.1) 0);">
-                            <div class="cy-circle-inner"><span>90%</span></div>
-                        </div>
-                        <div class="cy-circle-label">Problem Solving</div>
-                    </div>
-                    <div style="width:130px;text-align:center;">
-                        <div class="cy-circle2" style="background:conic-gradient(#00d4ff 85%, rgba(255,255,255,0.1) 0);">
-                            <div class="cy-circle-inner"><span>85%</span></div>
-                        </div>
-                        <div class="cy-circle-label">Analytical Thinking</div>
-                    </div>
-                    <div style="width:130px;text-align:center;">
-                        <div class="cy-circle2" style="background:conic-gradient(#00d4ff 80%, rgba(255,255,255,0.1) 0);">
-                            <div class="cy-circle-inner"><span>80%</span></div>
-                        </div>
-                        <div class="cy-circle-label">Communication</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="skills" class="page">
+<h2>My <span>Skills</span></h2>
+<div class="cy-skills-wrap2">
+<div class="cy-skill-col">
+<h3>Technical Skills</h3>
+<div class="cy-skill-row2">
+<div class="cy-skill-label2"><span>Python</span><span>90%</span></div>
+<div class="cy-skill-track"><div class="cy-skill-fill" style="width:90%;"></div></div>
+</div>
+<div class="cy-skill-row2">
+<div class="cy-skill-label2"><span>Pandas / NumPy</span><span>85%</span></div>
+<div class="cy-skill-track"><div class="cy-skill-fill" style="width:85%;"></div></div>
+</div>
+<div class="cy-skill-row2">
+<div class="cy-skill-label2"><span>scikit-learn</span><span>80%</span></div>
+<div class="cy-skill-track"><div class="cy-skill-fill" style="width:80%;"></div></div>
+</div>
+<div class="cy-skill-row2">
+<div class="cy-skill-label2"><span>Streamlit</span><span>80%</span></div>
+<div class="cy-skill-track"><div class="cy-skill-fill" style="width:80%;"></div></div>
+</div>
+<div class="cy-skill-row2">
+<div class="cy-skill-label2"><span>HTML / CSS / JS</span><span>75%</span></div>
+<div class="cy-skill-track"><div class="cy-skill-fill" style="width:75%;"></div></div>
+</div>
+</div>
+<div class="cy-skill-col">
+<h3>Professional Skills</h3>
+<div class="cy-circles-wrap">
+<div style="width:130px;text-align:center;">
+<div class="cy-circle2" style="background:conic-gradient(#00d4ff 90%, rgba(255,255,255,0.1) 0);">
+<div class="cy-circle-inner"><span>90%</span></div>
+</div>
+<div class="cy-circle-label">Problem Solving</div>
+</div>
+<div style="width:130px;text-align:center;">
+<div class="cy-circle2" style="background:conic-gradient(#00d4ff 85%, rgba(255,255,255,0.1) 0);">
+<div class="cy-circle-inner"><span>85%</span></div>
+</div>
+<div class="cy-circle-label">Analytical Thinking</div>
+</div>
+<div style="width:130px;text-align:center;">
+<div class="cy-circle2" style="background:conic-gradient(#00d4ff 80%, rgba(255,255,255,0.1) 0);">
+<div class="cy-circle-inner"><span>80%</span></div>
+</div>
+<div class="cy-circle-label">Communication</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="projects" class="page">
-        <h2>Latest <span>Projects</span></h2>
-        <div class="cy-projects-grid2">
+<section id="projects" class="page">
+<h2>Latest <span>Projects</span></h2>
+<div class="cy-projects-grid2">
 
-            <div class="cy-project-card2">
-                <div class="cy-project-media">
-                    <img src="Medical_diagnosis_web.PNG" alt="Medical Diagnosis System">
-                    <div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
-                </div>
-                <div class="cy-project-body">
-                    <h3>Multi-Disease Diagnosis System</h3>
-                    <p>ML app predicting Diabetes, Heart Disease, Parkinson's, Lung Cancer & Thyroid from patient data, using trained classification models.</p>
-                    <div class="cy-project-links2">
-                        <a href="https://medical-diagnosisss.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
-                        <a href="https://github.com/Charu4994/Medical_diagnosisss-" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
+<div class="cy-project-card2">
+<div class="cy-project-media">
+<img src="Medical diagnosis_web.PNG" alt="Medical Diagnosis System">
+<div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
+</div>
+<div class="cy-project-body">
+<h3>Multi-Disease Diagnosis System</h3>
+<p>ML app predicting Diabetes, Heart Disease, Parkinson's, Lung Cancer & Thyroid from patient data, using trained classification models.</p>
+<div class="cy-project-links2">
+<a href="https://medical-diagnosisss.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
+<a href="https://github.com/Charu4994/Medical_diagnosisss-" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
+</div>
+</div>
+</div>
 
-            <div class="cy-project-card2">
-                <div class="cy-project-media">
-                    <img src="fitter_web.png" alt="Personal Fitness Tracker">
-                    <div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
-                </div>
-                <div class="cy-project-body">
-                    <h3>Personal Fitness Tracker</h3>
-                    <p>Track workouts, visualize trends, and get ML-based calorie-burn predictions using Linear Regression on logged workout data.</p>
-                    <div class="cy-project-links2">
-                        <a href="https://helath-fitter-tracker.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
-                        <a href="https://github.com/Charu4994/helath_tracker" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
+<div class="cy-project-card2">
+<div class="cy-project-media">
+<img src="fitter_web.png" alt="Personal Fitness Tracker">
+<div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
+</div>
+<div class="cy-project-body">
+<h3>Personal Fitness Tracker</h3>
+<p>Track workouts, visualize trends, and get ML-based calorie-burn predictions using Linear Regression on logged workout data.</p>
+<div class="cy-project-links2">
+<a href="https://helath-fitter-tracker.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
+<a href="https://github.com/Charu4994/helath_tracker" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
+</div>
+</div>
+</div>
 
-            <div class="cy-project-card2">
-                <div class="cy-project-media cy-icon-media">
-                    <i class="fas fa-film"></i>
-                    <div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
-                </div>
-                <div class="cy-project-body">
-                    <h3>Movie Recommendation System</h3>
-                    <p>Content-based recommender using TF-IDF and Cosine Similarity on genres, cast, and keywords to suggest similar movies.</p>
-                    <div class="cy-project-links2">
-                        <a href="https://movie-recommendation-system-4994.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
-                        <a href="https://github.com/Charu4994/movie-recommendation-system" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
+<div class="cy-project-card2">
+<div class="cy-project-media">
+<img src="movie-app-screenshot.png" alt="Movie Recommendation System">
+<div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
+</div>
+<div class="cy-project-body">
+<h3>Movie Recommendation System</h3>
+<p>Content-based recommender using TF-IDF and Cosine Similarity on genres, cast, and keywords to suggest similar movies.</p>
+<div class="cy-project-links2">
+<a href="https://movie-recommendation-system-4994.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
+<a href="https://github.com/Charu4994/movie-recommendation-system" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
+</div>
+</div>
+</div>
 
-            <div class="cy-project-card2">
-                <div class="cy-project-media cy-icon-media">
-                    <i class="fas fa-chart-bar"></i>
-                    <div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
-                </div>
-                <div class="cy-project-body">
-                    <h3>Retail Sales Prediction</h3>
-                    <p>Random Forest regression model predicting product sales from the Big Mart dataset, comparing against Linear Regression.</p>
-                    <div class="cy-project-links2">
-                        <a href="https://sales-prediction-ml-4994.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
-                        <a href="https://github.com/Charu4994/sales-prediction-ml" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
+<div class="cy-project-card2">
+<div class="cy-project-media">
+<img src="sales-app-screenshot.png" alt="Retail Sales Prediction">
+<div class="cy-live-badge"><span class="cy-live-dot"></span>LIVE</div>
+</div>
+<div class="cy-project-body">
+<h3>Retail Sales Prediction</h3>
+<p>Random Forest regression model predicting product sales from the Big Mart dataset, comparing against Linear Regression.</p>
+<div class="cy-project-links2">
+<a href="https://sales-prediction-ml-4994.streamlit.app" target="_blank" class="cy-btn cy-btn-primary"><i class="fas fa-play"></i> Live Demo</a>
+<a href="https://github.com/Charu4994/sales-prediction-ml" target="_blank" class="cy-btn cy-btn-outline"><i class="fab fa-github"></i> Code</a>
+</div>
+</div>
+</div>
 
-        </div>
-    </section>
+<div class="cy-project-card2">
+<div class="cy-project-media">
+<img src="aadhaar-dashboard-screenshot.png" alt="Aadhaar Demographic Analytics">
+<div class="cy-live-badge" style="background:rgba(0,0,0,0.6);color:#ffb020;"><span class="cy-live-dot" style="background:#ffb020;box-shadow:0 0 8px #ffb020;"></span>IN PROGRESS</div>
+</div>
+<div class="cy-project-body">
+<h3>Aadhaar Demographic Analytics</h3>
+<p>Interactive dashboard for monitoring and analyzing Aadhaar demographic update patterns across India, with state/district filters and CSV/PDF export.</p>
+<div class="cy-project-links2">
+<span class="cy-btn cy-btn-outline" style="opacity:0.6;cursor:default;">Coming soon</span>
+</div>
+</div>
+</div>
 
-    <section id="resume" class="page">
-        <h2>My <span>Resume</span></h2>
-        <div class="cy-resume-grid">
+</div>
+</section>
 
-            <div class="cy-resume-card">
-                <div class="cy-resume-icon"><i class="fas fa-file-alt"></i></div>
-                <h3>Resume</h3>
-                <p>Detailed overview of my education, projects, and technical skills in Data Science & ML.</p>
-                <div class="cy-resume-btns">
-                    <a href="Charu_resume.pdf" target="_blank" class="cy-btn cy-btn-outline"><i class="fas fa-eye"></i> Preview</a>
-                    <a href="Charu_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download</a>
-                </div>
-            </div>
+<section id="resume" class="page">
+<h2>My <span>Resume</span></h2>
+<div class="cy-resume-grid">
 
-            <div class="cy-resume-card">
-                <div class="cy-resume-icon"><i class="fas fa-id-card"></i></div>
-                <h3>CV</h3>
-                <p>Concise one-page snapshot — perfect for a quick look at my background and experience.</p>
-                <div class="cy-resume-btns">
-                    <a href="my_resume.pdf" target="_blank" class="cy-btn cy-btn-outline"><i class="fas fa-eye"></i> Preview</a>
-                    <a href="my_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download</a>
-                </div>
-            </div>
+<div class="cy-resume-card">
+<div class="cy-resume-icon"><i class="fas fa-file-alt"></i></div>
+<h3>Resume</h3>
+<p>Detailed overview of my education, projects, and technical skills in Data Science & ML.</p>
+<div class="cy-resume-btns">
+<a href="Charu_resume.pdf" target="_blank" class="cy-btn cy-btn-outline"><i class="fas fa-eye"></i> Preview</a>
+<a href="Charu_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download</a>
+</div>
+</div>
 
-        </div>
-    </section>
+<div class="cy-resume-card">
+<div class="cy-resume-icon"><i class="fas fa-id-card"></i></div>
+<h3>CV</h3>
+<p>Concise one-page snapshot — perfect for a quick look at my background and experience.</p>
+<div class="cy-resume-btns">
+<a href="my_resume.pdf" target="_blank" class="cy-btn cy-btn-outline"><i class="fas fa-eye"></i> Preview</a>
+<a href="my_resume.pdf" download class="cy-btn cy-btn-primary"><i class="fas fa-download"></i> Download</a>
+</div>
+</div>
 
-    <section id="contact" class="page">
-        <h2>Contact <span>Me</span></h2>
-        <div class="cy-contact-wrap">
+</div>
+</section>
 
-            <div class="cy-contact-info">
-                <h3>Let's Connect</h3>
-                <p>Have a project, opportunity, or just want to talk about data & machine learning? Feel free to reach out — I'd love to hear from you.</p>
+<section id="contact" class="page">
+<h2>Contact <span>Me</span></h2>
+<div class="cy-contact-wrap">
 
-                <div class="cy-contact-item">
-                    <div class="cy-icon-box"><i class="fab fa-github"></i></div>
-                    <span><a href="https://github.com/Charu4994" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">github.com/Charu4994</a></span>
-                </div>
-                <div class="cy-contact-item">
-                    <div class="cy-icon-box"><i class="fab fa-linkedin-in"></i></div>
-                    <span><a href="https://www.linkedin.com/in/charu-yadav-0090a025b/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">linkedin.com/in/charu-yadav</a></span>
-                </div>
-                <div class="cy-contact-item">
-                    <div class="cy-icon-box"><i class="fas fa-envelope"></i></div>
-                    <span><a href="mailto:charuy468@gmail.com" style="color:inherit;text-decoration:none;">charuy468@gmail.com</a></span>
-                </div>
-            </div>
+<div class="cy-contact-info">
+<h3>Let's Connect</h3>
+<p>Have a project, opportunity, or just want to talk about data & machine learning? Feel free to reach out — I'd love to hear from you.</p>
 
-            <div class="cy-contact-form">
-                <form id="cyContactForm" action="https://formsubmit.co/charuy468@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New message from Portfolio site!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <div class="cy-field">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="cy-field">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="cy-field">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="cy-submit-btn">Send Message</button>
-                </form>
-            </div>
+<div class="cy-contact-item">
+<div class="cy-icon-box"><i class="fab fa-github"></i></div>
+<span><a href="https://github.com/Charu4994" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">github.com/Charu4994</a></span>
+</div>
+<div class="cy-contact-item">
+<div class="cy-icon-box"><i class="fab fa-linkedin-in"></i></div>
+<span><a href="https://www.linkedin.com/in/charu-yadav-0090a025b/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">linkedin.com/in/charu-yadav</a></span>
+</div>
+<div class="cy-contact-item">
+<div class="cy-icon-box"><i class="fas fa-envelope"></i></div>
+<span><a href="mailto:charuy468@gmail.com" style="color:inherit;text-decoration:none;">charuy468@gmail.com</a></span>
+</div>
+</div>
 
-        </div>
-    </section>
+<div class="cy-contact-form" style="padding:6px 18px !important;">
+<form id="cyContactForm" action="https://formsubmit.co/charuy468@gmail.com" method="POST" style="margin:0 !important;padding:0 !important;display:block !important;">
+<input type="hidden" name="_subject" value="New message from Portfolio site!">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<div class="cy-field" style="margin:0 0 4px 0 !important;padding:0 !important;">
+<input type="text" name="name" placeholder="Your Name" required style="margin:0 !important;padding:5px 10px !important;">
+</div>
+<div class="cy-field" style="margin:0 0 4px 0 !important;padding:0 !important;">
+<input type="email" name="email" placeholder="Your Email" required style="margin:0 !important;padding:5px 10px !important;">
+</div>
+<div class="cy-field" style="margin:0 0 4px 0 !important;padding:0 !important;">
+<textarea name="message" placeholder="Your Message" required style="margin:0 !important;padding:5px 10px !important;min-height:45px !important;max-height:55px !important;"></textarea>
+</div>
+<button type="submit" class="cy-submit-btn" style="margin:0 !important;padding:6px !important;">Send Message</button>
+</form>
+</div>
+
+</div>
+</section>
 
 </body>
-
 </html>
